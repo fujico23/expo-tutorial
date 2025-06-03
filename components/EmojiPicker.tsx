@@ -7,7 +7,7 @@ type Props = PropsWithChildren<{
   onClose: () => void;
 }>;
 
-export default function EmojiPicker({isVisible, onClose}: Props) { 
+export default function EmojiPicker({ isVisible, onClose, children }: Props) {
   return (
     <View>
       <Modal animationType="slide" transparent={true} visible={isVisible}>
@@ -18,6 +18,7 @@ export default function EmojiPicker({isVisible, onClose}: Props) {
               <MaterialIcons name='close' color='#fff' size={22} />
             </Pressable>
           </View>
+          <View style={styles.emojiListContainer}>{children}</View>
         </View>
       </Modal>
     </View>
@@ -48,4 +49,8 @@ const styles = StyleSheet.create({
     color: '#fff',
     fontSize: 16,
   },
-})
+  emojiListContainer: {
+    flex: 1,
+    paddingTop: 10,
+  },
+});
