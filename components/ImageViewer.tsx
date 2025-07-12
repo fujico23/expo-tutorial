@@ -3,9 +3,11 @@ import { ImageSourcePropType, StyleSheet } from "react-native";
 
 type Props = {
   imgSource: ImageSourcePropType;
+  selectedImage?: string; // オプションで選択された画像のURIを受け取る
 }
-export default function ImageViewer({ imgSource }: Props) {
-  return <Image source={imgSource} style={styles.image} />;
+export default function ImageViewer({ imgSource, selectedImage }: Props) {
+  const imageSource = selectedImage ? { uri: selectedImage } : imgSource;
+  return <Image source={imageSource} style={styles.image} />;
 }
 
 const styles = StyleSheet.create({
