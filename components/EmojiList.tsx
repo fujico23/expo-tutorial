@@ -19,11 +19,11 @@ export default function EmojiList({ onSelect, onCloseModal }: Props) {
 
   return (
     <FlatList
-      horizontal
-      showsHorizontalScrollIndicator={Platform.OS === "web"}
-      data={emoji}
-      contentContainerStyle={styles.listContainer}
-      renderItem={({ item, index }) => (
+      horizontal //スクロールを横にするか設定
+      showsHorizontalScrollIndicator={Platform.OS === "web"} //スクロールバーを表示するかどうか
+      data={emoji} //表示するデータ
+      contentContainerStyle={styles.listContainer} //コンテナのスタイル
+      renderItem={({ item, index }) => ( //アイテムのレンダリング
         <Pressable>
           <Image source={item} key={index} style={styles.image} />
         </Pressable>
